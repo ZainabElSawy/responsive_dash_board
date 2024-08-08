@@ -19,7 +19,8 @@ class CustomDrawer extends StatelessWidget {
             subTitle: 'demo@gmail.com',
           ),
           SizedBox(height: 8),
-          DrawerItemsListView()
+          DrawerItemsListView(),
+          Spacer()
         ],
       ),
     );
