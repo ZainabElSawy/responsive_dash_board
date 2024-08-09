@@ -51,15 +51,15 @@ class _LatestTransactionListViewState extends State<LatestTransactionListView> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 80,
-      child: ListView.builder(
-        shrinkWrap: true,
-        scrollDirection: Axis.horizontal,
-        itemCount: usersInfo.length,
-        itemBuilder: (ctx, index) => IntrinsicWidth(
-          child: UserInfoListTile(
-            userInfoModel: usersInfo[index],
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: List.generate(
+          usersInfo.length,
+          (index) => IntrinsicWidth(
+            child: UserInfoListTile(
+              userInfoModel: usersInfo[index],
+            ),
           ),
         ),
       ),
