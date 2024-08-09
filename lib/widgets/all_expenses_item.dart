@@ -7,13 +7,20 @@ class AllExpensesItem extends StatelessWidget {
       {super.key,
       required this.allExpensesItemModel,
       required this.isSelected});
+
   final AllExpensesItemModel allExpensesItemModel;
   final bool isSelected;
+
   @override
   Widget build(BuildContext context) {
-    return isSelected
-        ? ActiveAllExpensesItems(allExpensesItemModel: allExpensesItemModel)
-        : InActiveAllExpensesItems(allExpensesItemModel: allExpensesItemModel);
+    return AnimatedCrossFade(
+      duration: const Duration(milliseconds: 300),
+      firstChild:
+          InActiveAllExpensesItems(allExpensesItemModel: allExpensesItemModel),
+      secondChild:
+          ActiveAllExpensesItems(allExpensesItemModel: allExpensesItemModel),
+      crossFadeState:
+          isSelected ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+    );
   }
 }
-
