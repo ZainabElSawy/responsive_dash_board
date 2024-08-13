@@ -1,8 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:responsive_dash_board/widgets/custom_drawer.dart';
+import 'package:responsive_dash_board/widgets/income_section.dart';
 
 import 'all_expenses_and_quick_invoice_section.dart';
+import 'my_cards_and_transaction_history_section.dart';
 
 class DashBoardDesktopLayout extends StatelessWidget {
   const DashBoardDesktopLayout({super.key});
@@ -17,8 +20,20 @@ class DashBoardDesktopLayout extends StatelessWidget {
           flex: 3,
           child: AllExpensesAndQuickInvoiceSection(),
         ),
+        SizedBox(width: 24),
+        Expanded(
+          flex: 2,
+          child: Column(
+            children: [
+              SizedBox(height: 40),
+              MyCardsAndTransactionHistorySection(),
+              SizedBox(height: 24),
+              Expanded(child: IncomeSection()),
+            ],
+          ),
+        ),
+        SizedBox(width: 32),
       ],
     );
   }
 }
-
