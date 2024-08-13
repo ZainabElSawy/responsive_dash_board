@@ -11,19 +11,16 @@ class IncomeSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return const CustomBackgroundContainer(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           IncomeHeader(),
-          Expanded(
-              child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          Row(
             children: [
               Expanded(
                 child: IncomeChart(),
               ),
               Expanded(child: IncomeDetails())
             ],
-          ))
+          )
         ],
       ),
     );
