@@ -32,12 +32,11 @@ class _TransactionHistoryListViewState
   ];
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      shrinkWrap: true,
-      itemCount: transactions.length,
-      itemBuilder: (ctx, index) =>
-          TransactionItem(transactionModel: transactions[index]),
-      separatorBuilder: (ctx, index) => const SizedBox(height: 12),
+    return Column(
+      children: List.generate(
+        transactions.length,
+        (index) => TransactionItem(transactionModel: transactions[index]),
+      ),
     );
   }
 }

@@ -22,7 +22,7 @@ class RangeOptions extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('Monthly', style: AppStyles.styleMedium16),
+          Text('Monthly', style: AppStyles.styleMedium16(context)),
           const SizedBox(width: 18),
           Transform.rotate(
             angle: -(22 / 14),

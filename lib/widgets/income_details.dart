@@ -23,12 +23,11 @@ class _IncomeDetailsState extends State<IncomeDetails> {
   ];
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      shrinkWrap: true,
-        itemBuilder: (context, index) =>
-            ItemDetails(itemDetailsModel: items[index]),
-        separatorBuilder: (context, index) => const SizedBox(height: 12),
-        itemCount: items.length);
+    return Column(
+      children: List.generate(
+        items.length,
+        (index) => ItemDetails(itemDetailsModel: items[index]),
+      ),
+    );
   }
 }
-

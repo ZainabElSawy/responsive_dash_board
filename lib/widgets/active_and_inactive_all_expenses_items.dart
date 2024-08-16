@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../models/all_expenses_item_model.dart';
 import '../utils/app_styles.dart';
@@ -19,6 +21,7 @@ class ActiveAllExpensesItems extends StatelessWidget {
       decoration: ShapeDecoration(
         color: const Color(0xFF4DB7F2),
         shape: RoundedRectangleBorder(
+          side: const BorderSide(width: 1, color: Color(0xFF4DB7F2)),
           borderRadius: BorderRadius.circular(12),
         ),
       ),
@@ -31,17 +34,28 @@ class ActiveAllExpensesItems extends StatelessWidget {
             imageColor: Colors.white,
           ),
           const SizedBox(height: 34),
-          Text(allExpensesItemModel.title,
-              style: AppStyles.styleSemiBold16.copyWith(color: Colors.white)),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(allExpensesItemModel.title,
+                style: AppStyles.styleSemiBold16(context)
+                    .copyWith(color: Colors.white)),
+          ),
           const SizedBox(height: 8),
-          Text(
-            allExpensesItemModel.date,
-            style: AppStyles.styleRegular14
-                .copyWith(color: const Color(0xFFFAFAFA)),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              allExpensesItemModel.date,
+              style: AppStyles.styleRegular14(context)
+                  .copyWith(color: const Color(0xFFFAFAFA)),
+            ),
           ),
           const SizedBox(height: 16),
-          Text('\$${allExpensesItemModel.price}',
-              style: AppStyles.styleSemiBold24.copyWith(color: Colors.white)),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text('\$${allExpensesItemModel.price}',
+                style: AppStyles.styleSemiBold24(context)
+                    .copyWith(color: Colors.white)),
+          ),
         ],
       ),
     );
@@ -72,15 +86,27 @@ class InActiveAllExpensesItems extends StatelessWidget {
         children: [
           AllExpensesItemHeader(image: allExpensesItemModel.image),
           const SizedBox(height: 34),
-          Text(allExpensesItemModel.title, style: AppStyles.styleSemiBold16),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(allExpensesItemModel.title,
+                style: AppStyles.styleSemiBold16(context)),
+          ),
           const SizedBox(height: 8),
-          Text(
-            allExpensesItemModel.date,
-            style: AppStyles.styleRegular14,
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              allExpensesItemModel.date,
+              style: AppStyles.styleRegular14(context),
+            ),
           ),
           const SizedBox(height: 16),
-          Text('\$${allExpensesItemModel.price}',
-              style: AppStyles.styleSemiBold24),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              '\$${allExpensesItemModel.price}',
+              style: AppStyles.styleSemiBold24(context),
+            ),
+          ),
         ],
       ),
     );
